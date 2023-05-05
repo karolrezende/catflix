@@ -4,8 +4,6 @@ import styles from './styles.module.scss'
 import Button from '/src/components/Button/Button'
 import LoadContent from '../../components/LoadContent/LoadContent'
 import { Link } from 'react-router-dom'
-import Login from '../login/Login'
-import SignIn from '../signin/SignIn'
 
 export default function Home() {
   const [showVisited, setShowVisited] = useState(true)
