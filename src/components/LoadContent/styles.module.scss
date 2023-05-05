@@ -1,0 +1,28 @@
+@import '/src/global.scss';
+//página de load
+.div_load{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black;
+    &_img{
+        display: flex;
+        &__img{
+            opacity: 0;
+            animation: img 1s ease-in-out forwards;
+            height: 100px;
+        }
+    }
+}
+@keyframes img {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+}
