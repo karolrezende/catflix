@@ -8,8 +8,8 @@ export default function Login() {
     <div className={styles.div}>
       <Header type='icon'/>
       <p className={styles.div_title}>Entre para acessar</p>
-      <div>
-        <div>
+      <div className={styles.div_border}>
+        <form>
           <Input type="name" placeholder="Digite seu email" label='Email'/>
           <Input type="password" placeholder="Digite sua senha" label='Senha'/>
           <div> 
@@ -19,7 +19,7 @@ export default function Login() {
           <div>
             <Button option={2}>Catastre=se</Button>
           </div>
-        </div>
+        </form>
       </div>
       <Footer/>
     </div>

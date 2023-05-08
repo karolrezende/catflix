@@ -10,6 +10,14 @@
         color: $white;
         margin-top: 1em;
     }
-    div{
+    &_border{
+        border: 1px solid $white;
+        border-radius: 8px;
+        width: 70%;
+        height: 400px;
+        margin:2em 0;
+        form{
+            margin: 2em;
+        }
     }
 }
