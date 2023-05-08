@@ -2,4 +2,9 @@
 .footer{
     color:$white;
     font-family: 'inter';
+    background-color: $black;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
