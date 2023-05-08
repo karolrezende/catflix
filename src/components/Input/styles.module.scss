@@ -1,0 +1,15 @@
+@import '/src/global.scss';
+.input{
+    label{
+        color: $white;
+    }
+    &_input{
+        background-color: $white;
+        input{
+            border: none;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}

@@ -1,7 +1,15 @@
 @import '/src/global.scss';
 .div{
     width: 100vw;
+    background-color: $black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &_title{
+        color: $white;
+        margin-top: 1em;
+    }
     div{
-        background-color: $black;
     }
 }

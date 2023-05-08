@@ -2,10 +2,41 @@
 .div, .div_icon{
     background-color: $black;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 8em;
 } 
 .div_icon{
-
+    flex-direction: column;
+    gap: 15px;
+    &__name{
+        width: 200px;
+    }
+    &__logo{
+        width: 65px;
+    }
 }
 .div{
     
+}
+
+@media screen and (min-width: 800px) {
+    .div_icon{
+        flex-direction: row-reverse;
+        height: 6em;
+        border-bottom: 1px solid $white;
+        margin-top: 0;
+        &__logo{
+            margin-left: 4em;
+        }
+    }
+    .div{
+        height: 6em;
+        border-bottom: 1px solid $white;
+        margin-top: 0;
+        &_name{
+            margin-left: 4em;
+        }
+    }
 }

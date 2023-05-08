@@ -17,7 +17,7 @@ export default function Header({type}: iProps){
 const HeaderIcon = () => {
   return (
     <div className={styles.div_icon}>
-        <img src={catflix} alt="Catflix logo" className={styles.div_icon__logo}/>
+        <img src={catflix} alt="Catflix logo" className={styles.div_icon__name}/>
         <img src={catlogo} alt="Catflix logo" className={styles.div_icon__logo}/>
     </div>
   )
@@ -26,7 +26,7 @@ const HeaderIcon = () => {
 const HeaderNoIcon = () => {
     return (
       <div className={styles.div}>
-        <img src={catflix} alt="Catflix logo" className={styles.div_logo}/>
+        <img src={catflix} alt="Catflix logo" className={styles.div_name}/>
       </div>
     )
   }
