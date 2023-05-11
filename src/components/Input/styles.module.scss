@@ -25,3 +25,11 @@
         }
     }
 }
+
+@media screen and (min-width: 800px) {
+    .input{ 
+        &_input{
+            height: 45px;
+        }
+    }
+}    
