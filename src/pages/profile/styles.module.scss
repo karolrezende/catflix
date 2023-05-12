@@ -1,0 +1,61 @@
+@import '/src/global.scss';
+.div{
+    background-color: $black;
+    height: 100vh;
+    &_header{
+        padding-top: 5em;
+    }
+    &_body{
+        margin: 2em;
+        border: 1px solid $white;
+        height: 75%;
+        border-radius: 8px;
+        &_div{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                color: $white;
+                margin-bottom: 5em;
+                font-size: 16px;
+                cursor: auto;
+            }
+            &__icon{
+                color: $white;
+                text-align: center;
+                &_icon{
+                    border: 1px solid $white;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                p{
+                    margin-top: 1em;
+                }
+                :hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .div{
+        &_header{
+            padding: 0;
+        }
+        &_body{
+            height:80%;
+            &_div{
+                h1{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

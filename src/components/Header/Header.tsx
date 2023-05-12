@@ -29,5 +29,4 @@ const HeaderNoIcon = () => {
         <img src={catflix} alt="Catflix logo" className={styles.div_name}/>
       </div>
     )
-  }
-  
+}

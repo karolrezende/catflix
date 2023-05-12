@@ -7,8 +7,14 @@ import catInput from '/public/cathappy.png'
 import catSleep from '/public/catsleep.png'
 import catSit from '/public/catsit.png'
 import catBit from '/public/bigCat.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 export default function Login() {
+  const navigate = useNavigate()
+
+  function submit(){
+    navigate('/profile')
+  }
+
   return (
     <div className={styles.div}>
       <div className={styles.div_header}>
@@ -23,8 +29,8 @@ export default function Login() {
               <Input type="name" placeholder="Digite seu email" label='Email'/>
               <Input type="password" placeholder="Digite sua senha" label='Senha'/>
               <div className={styles.div_div_border__form_button}>
-                <div className={styles.div_div_border__form_button_um}> 
-                    <Button option={1}>Entrar</Button>
+                <div className={styles.div_div_border__form_button_um} onClick={()=>submit()}> 
+                    <Button option={1} >Entrar</Button>
                 </div>
                 <p className={styles.div_div_border__form_p1}>Ainda não possui conta?</p>
                 <p className={styles.div_div_border__form_p2}>Ou</p>

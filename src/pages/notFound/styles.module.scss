@@ -1,0 +1,46 @@
+@import '/src/global.scss';
+.div{
+    background-color: $black;
+    height: 100vh;
+    &_header{
+        padding-top: 4em;
+    }
+    &_body{
+        color: $white;
+        margin: 0 4em ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 8em;
+        gap: 4em;
+        &__text{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 1em;
+        }
+        &__img{
+            text-align: center;
+            img{
+                width: 100px;
+            }
+        }
+        &__link{
+            text-decoration: none;
+            color: $white;
+            font-weight: 800;
+            &:hover{
+                font-size: 18px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .div{
+        &_header{
+            padding: 0;
+        }
+    }
+}

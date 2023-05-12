@@ -4,14 +4,29 @@ import SignIn from "./pages/signin/SignIn";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./pages/notFound/NotFound";
 import Term from "./pages/term/Term";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Profile from "./pages/profile/Profile";
+import { useUserContext } from "./providers/UserProvider";
+import HomePage from "./pages/homePage/HomePage";
 
 export default function Routers() {
+  const {token} = useUserContext()
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/cadastro" element={<SignIn/>}/>
       <Route path="/termo" element={<Term/>}/>
+      <Route path="/profile"  element={
+        // <ProtectedRoute token={token}>
+          <Profile/>
+        // </ProtectedRoute>
+      }/>
+      <Route path="/home"  element={
+        // <ProtectedRoute token={token}>
+          <HomePage/>
+        // </ProtectedRoute>
+      }/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
   )

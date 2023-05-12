@@ -1,0 +1,24 @@
+@import '/src/global.scss';
+.div{
+    background-color: $black;
+    &_header{
+        display: flex;
+        &_div1{
+            display: flex;
+            &__img{
+                &_img1{
+                    width: 50px;
+                }
+                &_img2{
+                    width: 200px;
+                }
+            }
+            ul{
+                display: flex;
+                li{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

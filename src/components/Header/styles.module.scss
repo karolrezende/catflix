@@ -17,7 +17,11 @@
     }
 }
 .div{
-    
+    display: flex;
+    justify-content: center;
+    &_name{
+        width: 200px;
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -34,8 +38,10 @@
         height: 6em;
         border-bottom: 1px solid $white;
         margin-top: 0;
+        justify-content: start;
         &_name{
             margin-left: 4em;
+            width: 200px;
         }
     }
 }
