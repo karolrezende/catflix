@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./pages/profile/Profile";
 import { useUserContext } from "./providers/UserProvider";
 import HomePage from "./pages/homePage/HomePage";
+import Search from "./pages/search/Search";
 
 export default function Routers() {
   const {token} = useUserContext()
@@ -25,6 +26,11 @@ export default function Routers() {
       <Route path="/home"  element={
         // <ProtectedRoute token={token}>
           <HomePage/>
+        // </ProtectedRoute>
+      }/>
+      <Route path="/pesquisar"  element={
+        // <ProtectedRoute token={token}>
+          <Search/>
         // </ProtectedRoute>
       }/>
       <Route path="*" element={<NotFound/>}/>

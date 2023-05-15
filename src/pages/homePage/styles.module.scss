@@ -1,22 +1,159 @@
 @import '/src/global.scss';
+.main{
+    background-image: url('./content/bkg.png');
+    width: 100vw;
+    height: 50vh;
+}
 .div{
-    background-color: $black;
+    background-color:  rgba(000, 0, 0, 0.6);
     &_header{
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.5em;
+        color: $white;
         &_div1{
             display: flex;
+
             &__img{
                 &_img1{
                     width: 50px;
                 }
                 &_img2{
                     width: 200px;
+                    display: none;
                 }
             }
             ul{
                 display: flex;
+                align-items: center;
+                margin-left: 2em;
+                gap: 1em;
                 li{
                     text-decoration: none;
+                    list-style: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        &_div2{
+            &__search{
+                display: none;
+                flex-direction: column;
+                align-items: center;
+
+            }
+        }
+    }
+    &_button{
+        //width: 100vw;
+        padding: 0 4em;
+        margin-top: 110%;
+        text-align: center;
+        &__img{
+            display: none;
+        }
+        &__container{
+            display: flex;
+            color: $white;
+            justify-content: space-between;
+            font-size: 16px;
+            &_reverse{
+                width: 65%;
+                justify-content: space-between;
+                display: flex;
+                &_button{
+                    background-color: $white;
+                    color: $black;
+                    width: 70px;
+                    height: 40px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5em;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                &_add{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                &_info{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 350px) {
+    .main{
+        background-image: url('./content/bkgBig.png');
+        height: 70vh;
+    }
+    .div{
+        &_button{
+        width: 100vw;
+        margin-top: 15%;
+            &__img{
+                display: flex;
+            }
+            &__container{
+                width: 250px;
+                margin-top: 2em;
+                &_reverse{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    &_button{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    }
+
+@media screen and (min-width: 1200px) {
+    .main{
+        background-image: url('./content/bkg1200.png');
+        height: 70vh;
+    }
+    .div{
+        &_header{
+            padding: 1em 4em;
+            &_div2{
+               
+                &__search{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &:hover{
+                        cursor: pointer;
+                    }
+    
+                }
+            }
+        }
+        &_button{
+        width: 100vw;
+        margin-top: 15%;
+            &__img{
+                display: flex;
+            }
+            &__container{
+                width: 250px;
+                margin-top: 2em;
+                &_reverse{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    &_button{
+                        width: 100px;
+                    }
                 }
             }
         }
