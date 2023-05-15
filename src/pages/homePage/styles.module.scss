@@ -41,6 +41,10 @@
                 display: none;
                 flex-direction: column;
                 align-items: center;
+                p{
+                    color: white;
+                    text-decoration: none;
+                }
 
             }
         }
@@ -48,7 +52,7 @@
     &_button{
         //width: 100vw;
         padding: 0 4em;
-        margin-top: 110%;
+        margin-top: 60%;
         text-align: center;
         &__img{
             display: none;
@@ -90,7 +94,7 @@
         }
     }
 }
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 500px) {
     .main{
         background-image: url('./content/bkgBig.png');
         height: 70vh;

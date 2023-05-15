@@ -1,0 +1,42 @@
+@import '/src/global.scss';
+.div{
+    background-color: $grey;
+    width: 100vw;
+    height: 100vh;
+    &_img{
+        position: absolute;
+        bottom: 3.5em;
+        display: flex;
+        gap: 8em;
+        align-items: flex-end;
+    }
+    footer{
+        width: 100%;
+        background-color: $black;
+        padding: .5em 0;
+        left: 0;
+        bottom: 0;
+        position: fixed;
+        text-align: center;
+        p{
+            color: $white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .div{
+        &_img{
+            bottom: 0;
+            justify-content: space-evenly;
+            width: 100vw;
+            img{
+                height: 100px;
+            }
+        }
+        footer{
+            display: none;
+        }
+    }
+}
