@@ -10,23 +10,23 @@ import styles from './styles.module.scss'
 export default function Search() {
   return (
     <div className={styles.div}>
-        <header>
-            <div>
+        <header className={styles.div_header}>
+            <div className={styles.div_header__icon}>
                 <img src={paw} alt="Catpaw" />
                 <p>Pawsquisar</p>
             </div>
-            <div>
+            <div className={styles.div_header__input}>
                 <div>
                     <input type="text" placeholder="Procure filmes, séries..." />
                     <img src={search} alt="Imagem de gato" />
                 </div>
-                <img src={down} alt="Imagem de gato" />
+                <img src={down} alt="Imagem de gato" className={styles.div_header__input_img}/>
             </div>
-            <div>
-                <Link to='/home'>Voltar</Link>
+            <div className={styles.div_header__back}>
+                <Link to='/home' className={styles.div_header__back_back}>Voltar</Link>
             </div>
         </header>
-        <div>
+        <div className={styles.div_div}>
             <p>Digite algo...</p>
             <img src={love} alt="Imagem de gato" />
         </div>

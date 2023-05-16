@@ -3,12 +3,75 @@
     background-color: $grey;
     width: 100vw;
     height: 100vh;
+    &_header{
+        display: flex;
+        align-items: center;
+        color: $white;
+        background-color: $black;
+        padding: 0.5em 2em;
+        &__icon{
+            p{
+                display: none;
+            }
+        }
+        &__input{
+            width: 100%;
+            div{
+                display: flex;
+                justify-content: space-between;
+                background-color: $black;
+                border: 1px solid $white;
+                margin-left: 1em;
+                width: 100%;
+                border-radius: 8px;
+                input{
+                    background-color: transparent;
+                    color: $white;
+                    width: 100%;
+                    border: none;
+                    padding: 0 2em;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                img{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            &_img{
+                position: absolute;
+                display: none;
+            }
+        }
+        &__back{
+            &_back{
+                display: none;   
+            }
+        }
+    }
+    &_div{
+        color: white;
+        font-size: 20px;
+        width: 100vw;
+        text-align: center;
+        margin-top: 10em;
+        img{
+            margin-top: 1em;
+        }
+    }
     &_img{
+        width: 100vw;
         position: absolute;
         bottom: 3.5em;
         display: flex;
-        gap: 8em;
-        align-items: flex-end;
+        justify-content: space-around;
+        gap: 5em;
+        align-items: flex-end;  
+        img{
+            width: 100px;
+        }
     }
     footer{
         width: 100%;
@@ -30,9 +93,50 @@
         &_img{
             bottom: 0;
             justify-content: space-evenly;
-            width: 100vw;
+           // width: 100vw;
             img{
-                height: 100px;
+                width: 100px;
+            }
+        }
+        &_header{
+            padding: 1em 5em;
+            display: flex;
+            &__icon{
+                display: flex;
+                gap: 1em;
+                align-items: center;
+                p{
+                    display: flex;
+                }
+            }
+            &__input{
+                width: 50%;
+                div{
+                    input{
+                        background-color: transparent;
+                        color: $white;
+                        width: 100%;
+                        border: none;
+                        padding: 0 2em;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+                &_img{
+                    position: absolute;
+                    display: flex;
+                    top: 2.5em;
+                    left: 50%;
+                }
+            }
+            &__back{
+                margin-left: 40em;
+                &_back{
+                    display: flex;   
+                    color: $white;
+                    text-decoration: none;
+                }
             }
         }
         footer{
