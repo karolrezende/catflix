@@ -7,6 +7,7 @@ import info from './content/info.png'
 import add from './content/+.png'
 import styles from './styles.module.scss'
 import { Link } from 'react-router-dom'
+import List from '/src/components/List/List'
 export default function HomePage() {
   return (
     <div className={styles.main}>
@@ -53,6 +54,9 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <section className={styles.main_body}>
+        <List title='Movies' type='movies'/>
+      </section>
     </div>
   )
 }

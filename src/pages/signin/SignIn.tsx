@@ -8,7 +8,21 @@ import catSleep from '/public/catsleep.png'
 import catSit from '/public/catsit.png'
 import catBit from '/public/bigCat.png'
 import { Link } from 'react-router-dom'
+
+import * as yup from 'yup'; 
+import { useForm } from "react-hook-form"; 
+import { yupResolver } from '@hookform/resolvers/yup';
+
 export default function SignIn() {
+  const schema = yup.object().shape({
+    username: yup.string().required("Digite seu nome"),
+    email: yup.string().email("Digite um email válido").required("Digite seu email").max(250, "Máximo 250 caracteres"),
+    password: yup.string().required("Digite sua senha"),
+    confirmPassword: yup.string().required("Confirme sua senha").oneOf([yup.ref("password"), "Confirme sua senha"])
+  })
+  const {register, handleSubmit, formState: {errors}} = useForm({resolver: yupResolver(schema)})
+
+  
   return (
     <div className={styles.div}>
       <div className={styles.div_header}>

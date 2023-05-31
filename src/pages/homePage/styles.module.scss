@@ -94,6 +94,13 @@
         }
     }
 }
+.main_body{
+    background: rgb(20,20,20);
+
+    width: 100vw;
+    height: 100%;
+}
+
 @media screen and (min-width: 500px) {
     .main{
         background-image: url('./content/bkgBig.png');
