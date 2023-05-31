@@ -13,6 +13,13 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
 
+export interface iSign {
+  username: string, 
+  email: string,
+  password: string, 
+  confirmPassword: string
+}
+
 export default function SignIn() {
   const schema = yup.object().shape({
     username: yup.string().required("Digite seu nome"),
@@ -20,9 +27,12 @@ export default function SignIn() {
     password: yup.string().required("Digite sua senha"),
     confirmPassword: yup.string().required("Confirme sua senha").oneOf([yup.ref("password"), "Confirme sua senha"])
   })
-  const {register, handleSubmit, formState: {errors}} = useForm({resolver: yupResolver(schema)})
+  const {register, handleSubmit, formState: {errors}} = useForm<iSign>({resolver: yupResolver(schema)})
 
-  
+  const submitedForm = (data: iSign ) => {
+    console.log(data)
+  }
+
   return (
     <div className={styles.div}>
       <div className={styles.div_header}>
@@ -32,12 +42,17 @@ export default function SignIn() {
       <div className={styles.div_}>
         <div className={styles.div_div}>
           <div className={styles.div_div_border}>
-            <form className={styles.div_div_border__form}>
+            <form className={styles.div_div_border__form} onSubmit={handleSubmit(submitedForm)}>
               <img src={catInput} alt="Gatinho input" className={styles.div_div_border__form_icon}/>
-              <Input type="name" placeholder="Digite seu nome" label='Nome'/>
-              <Input type="email" placeholder="Digite seu email" label='Email'/>
-              <Input type="password" placeholder="Digite sua senha" label='Senha'/>
-              <Input type="password" placeholder="Confirme sua senha" label='Confirmar senha'/>
+              
+              <Input type="name" placeholder="Digite seu nome" label='Nome' {...register("username")}/>
+              <span>{errors.username?.message}</span>
+              <Input type="email" placeholder="Digite seu email" label='Email' {...register("email")}/>
+              <span>{errors.email?.message}</span>
+              <Input type="password" placeholder="Digite sua senha" label='Senha' {...register("password")}/>
+              <span>{errors.password?.message}</span>
+              <Input type="password" placeholder="Confirme sua senha" label='Confirmar senha' {...register("confirmPassword")}/>
+              <span>{errors.confirmPassword?.message}</span>
               <div className={styles.div_div_border__form_button}>
                 <div className={styles.div_div_border__form_button_um}> 
                     <Button option={1}>Catastre-se</Button>

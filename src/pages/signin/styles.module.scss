@@ -79,7 +79,10 @@
             text-decoration: none;
         }
     }
-
+    span{
+        color: #cf4c4c;
+        font-size: 15px;
+    }
 }
 .catbig{
     display: none;
@@ -100,7 +103,6 @@
             //margin: 1em 2em 0 2em;
             &_border{
                 &__form{
-                    margin-top: 4em;
                     &_icon{
                         left: 90%;
                     }

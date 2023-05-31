@@ -16,3 +16,7 @@ export default function Input({type, placeholder, label}: iPropsInput) {
     </div>
   )
 }
+
+export default const Input = forwardRef<HTMLInputElement, React.HTMLProps<HTMLInputElement>>((props, ref) => {
+  return <input ref={ref} {...props} />;
+});
