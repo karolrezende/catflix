@@ -11,6 +11,14 @@ const UserContext = createContext<iContext>({} as iContext)
 
 export const UserProvider=({children}: iReactNode)=> {
     const [token, setToken] = useState("")
+
+    if (localStorage.getItem('token')) {
+        const newToken: string = JSON.parse(localStorage.getItem('token')!);
+        if (newToken !== token) {
+          setToken(newToken);
+        }
+    }
+
     const tokenSetter = (token: string) =>{
         setToken(token)
     }

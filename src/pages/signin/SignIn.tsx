@@ -42,7 +42,7 @@ export default function SignIn() {
     }).then(( res: AxiosResponse)=>{
       console.log(res)
       if(res.status === 201 ){
-        toast.success('🦄 Cadastrado com sucesso!', {
+        toast.success('😻 Cadastrado com sucesso!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -55,7 +55,7 @@ export default function SignIn() {
       }
     }).catch((err: AxiosError) => {
         if(err.request?.status === 409 ){ 
-          toast.warning('Email já está em uso!', {
+          toast.warning('😿 Email já está em uso!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

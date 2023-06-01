@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 interface iProps{
-  children: ReactNode,
+  children: any,
   token: string
 }
 export default function ProtectedRoute({children, token}: iProps) {

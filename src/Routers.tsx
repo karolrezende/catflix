@@ -19,19 +19,19 @@ export default function Routers() {
       <Route path="/cadastro" element={<SignIn/>}/>
       <Route path="/termo" element={<Term/>}/>
       <Route path="/profile"  element={
-        // <ProtectedRoute token={token}>
+        <ProtectedRoute token={token}>
           <Profile/>
-        // </ProtectedRoute>
+       </ProtectedRoute>
       }/>
       <Route path="/home"  element={
-        // <ProtectedRoute token={token}>
+        <ProtectedRoute token={token}>
           <HomePage/>
-        // </ProtectedRoute>
+         </ProtectedRoute>
       }/>
       <Route path="/pesquisar"  element={
-        // <ProtectedRoute token={token}>
+        <ProtectedRoute token={token}>
           <Search/>
-        // </ProtectedRoute>
+        </ProtectedRoute>
       }/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
