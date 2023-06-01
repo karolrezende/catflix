@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from '/src/components/Header/Header'
 import styles from './styles.module.scss'
 import Input from '/src/components/Input/Input'
@@ -12,12 +14,15 @@ import { Link } from 'react-router-dom'
 import * as yup from 'yup'; 
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { api } from '/src/app/apiConection.tsx'
+
+import { AxiosError, AxiosResponse } from 'axios'
 
 export interface iSign {
   username: string, 
   email: string,
   password: string, 
-  confirmPassword: string
+  confirmPassword?: string
 }
 
 export default function SignIn() {
@@ -29,10 +34,42 @@ export default function SignIn() {
   })
   const {register, handleSubmit, formState: {errors}} = useForm<iSign>({resolver: yupResolver(schema)})
 
-  const submitedForm = (data: iSign ) => {
-    console.log(data)
-  }
-
+  const submitedForm = async (data: iSign) => {
+    const sign = await api.post('/users', {
+      username: data.username,
+      email: data.email,
+      password: data.password
+    }).then(( res: AxiosResponse)=>{
+      console.log(res)
+      if(res.status === 201 ){
+        toast.success('🦄 Cadastrado com sucesso!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      }
+    }).catch((err: AxiosError) => {
+        if(err.request?.status === 409 ){ 
+          toast.warning('Email já está em uso!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+            console.log(sign)
+        }
+      }
+    )
+  }   
   return (
     <div className={styles.div}>
       <div className={styles.div_header}>
@@ -43,6 +80,7 @@ export default function SignIn() {
         <div className={styles.div_div}>
           <div className={styles.div_div_border}>
             <form className={styles.div_div_border__form} onSubmit={handleSubmit(submitedForm)}>
+              <ToastContainer /> 
               <img src={catInput} alt="Gatinho input" className={styles.div_div_border__form_icon}/>
               
               <Input type="name" placeholder="Digite seu nome" label='Nome' {...register("username")}/>
@@ -55,7 +93,7 @@ export default function SignIn() {
               <span>{errors.confirmPassword?.message}</span>
               <div className={styles.div_div_border__form_button}>
                 <div className={styles.div_div_border__form_button_um}> 
-                    <Button option={1}>Catastre-se</Button>
+                    <Button option={1} >Catastre-se</Button>
                 </div>
                 <p className={styles.div_div_border__form_button_p1}>Já possui conta? <Link to='/login' className={styles.div_div_border__form_button_p3}>Faça o login</Link></p>
                 <p className={styles.div_div_border__form_button_p2}><Link to='/cadastro' className={styles.div_div_border__form_button_p2}>Login</Link></p>
