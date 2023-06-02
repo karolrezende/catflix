@@ -2,12 +2,15 @@ import Header from '/src/components/Header/Header'
 import styles from './styles.module.scss'
 import catProfile from '/public/ccat.png'
 import { useNavigate } from 'react-router-dom'
+import { useUserContext } from '/src/providers/UserProvider'
 export default function Profile() {
   const username = 'Karol'
   const navigateTo = useNavigate()
   const renderHome = () =>{
     navigateTo('/home')
   }
+  const {user} = useUserContext()
+  console.log(user)
   return (
     <div className={styles.div}>
       <div className={styles.div_header}>
@@ -20,7 +23,7 @@ export default function Profile() {
             <div className={styles.div_body_div__icon_icon}>
               <img src={catProfile} alt="Cat div" />
             </div>
-            <p>{username}</p>
+            <p>{user.username}</p>
           </div>
         </div>
       </div>

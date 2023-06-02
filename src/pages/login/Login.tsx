@@ -13,7 +13,7 @@ import { useUserContext } from '/src/providers/UserProvider.tsx'
 import * as yup from 'yup'; 
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { api } from '/src/app/apiConection.tsx'
+import { api } from '/src/app/apiConection'
 import { AxiosResponse } from 'axios'
 
 interface iLogin{
@@ -40,7 +40,6 @@ export default function Login() {
       tokenSetter({token})
       localStorage.setItem("token", JSON.stringify(token))
       console.log(res.data.token)
-      console.log(res)
       navigate('/profile')
     })
   }

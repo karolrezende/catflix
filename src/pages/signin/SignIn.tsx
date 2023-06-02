@@ -82,7 +82,6 @@ export default function SignIn() {
             <form className={styles.div_div_border__form} onSubmit={handleSubmit(submitedForm)}>
               <ToastContainer /> 
               <img src={catInput} alt="Gatinho input" className={styles.div_div_border__form_icon}/>
-              
               <Input type="name" placeholder="Digite seu nome" label='Nome' {...register("username")}/>
               <span>{errors.username?.message}</span>
               <Input type="email" placeholder="Digite seu email" label='Email' {...register("email")}/>

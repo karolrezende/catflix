@@ -9,10 +9,12 @@ import Profile from "./pages/profile/Profile";
 import { useUserContext } from "./providers/UserProvider";
 import HomePage from "./pages/homePage/HomePage";
 import Search from "./pages/search/Search";
+import { MovieProvider } from "./providers/MoviesProvider";
 
 export default function Routers() {
   const {token} = useUserContext()
   return (
+    <MovieProvider>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
@@ -22,18 +24,19 @@ export default function Routers() {
         <ProtectedRoute token={token}>
           <Profile/>
        </ProtectedRoute>
-      }/>
-      <Route path="/home"  element={
-        <ProtectedRoute token={token}>
-          <HomePage/>
-         </ProtectedRoute>
-      }/>
-      <Route path="/pesquisar"  element={
-        <ProtectedRoute token={token}>
-          <Search/>
-        </ProtectedRoute>
-      }/>
-      <Route path="*" element={<NotFound/>}/>
+        }/>
+        <Route path="/home"  element={
+          <ProtectedRoute token={token}>
+            <HomePage/>
+          </ProtectedRoute>
+        }/>
+        <Route path="/pesquisar"  element={
+          <ProtectedRoute token={token}>
+            <Search/>
+          </ProtectedRoute>
+        }/>
+        <Route path="*" element={<NotFound/>}/>
     </Routes>
+    </MovieProvider>
   )
 }
