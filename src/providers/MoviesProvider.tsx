@@ -11,7 +11,7 @@ interface iContext{
 }
 const MovieContext = createContext<iContext>({} as iContext)
 
-interface iMovie {
+export interface iMovie {
     id: number,
     title: string, 
     description: string,

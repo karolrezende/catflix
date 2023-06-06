@@ -14,7 +14,8 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { api } from '/src/app/apiConection'
-import { AxiosResponse } from 'axios'
+import { AxiosError, AxiosResponse } from 'axios'
+import { useState } from 'react'
 
 interface iLogin{
   email: string, 
@@ -30,7 +31,7 @@ export default function Login() {
     password: yup.string().required("Digite sua senha")
   });
   const { register, handleSubmit, formState:{errors}} = useForm<iLogin>({resolver: yupResolver(schema)})
-
+  const [wrongPassword, setWrongPassword] = useState('')
   async function handleLoginSubmit(data: iLogin){
     const response = await api.post('/login',{
       email: data.email,
@@ -41,6 +42,12 @@ export default function Login() {
       localStorage.setItem("token", JSON.stringify(token))
       console.log(res.data.token)
       navigate('/profile')
+      
+    }).catch((err: AxiosError) =>{
+      console.log("deu erro", err)
+      if(err.request?.status === 401){
+        setWrongPassword("Email/senha incorreto")
+      }
     })
   }
 
@@ -59,6 +66,7 @@ export default function Login() {
               {errors.email?.message}
               <Input type="password" placeholder="Digite sua senha" label='Senha' {...register("password")}/>
               {errors.password?.message}
+              <span>{wrongPassword}</span>
               <div className={styles.div_div_border__form_button}>
                 <div className={styles.div_div_border__form_button_um}> 
                     <Button option={1} >Entrar</Button>
