@@ -1,7 +1,7 @@
 /* eslint-disable no-inner-declarations */
 import { api } from "../app/apiConection"
 import { AxiosResponse } from "axios"
-import { Children, ReactNode, createContext, useContext, useEffect, useState } from "react"
+import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 
 interface iReactNode{
     children: ReactNode
@@ -35,7 +35,7 @@ export const UserProvider=({children}: iReactNode)=> {
     useEffect(()=>{ 
         if (token) {
             async function getUser(){
-                const userRequest = await api.get('/profile', {
+                await api.get('/profile', {
                     headers:{
                         "Authorization": `Bearer ${token}`
                     }

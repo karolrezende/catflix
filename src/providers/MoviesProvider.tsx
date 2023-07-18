@@ -1,5 +1,5 @@
 /* eslint-disable no-inner-declarations */
-import { api } from "/src/app/apiConection"
+import { api } from "../app/apiConection"
 import { AxiosResponse } from "axios"
 import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 
@@ -25,7 +25,7 @@ export const MovieProvider=({children}: iReactNode)=> {
 
     useEffect(()=>{ 
         async function getUser(){
-            const movieRequest = await api.get('/movies').then((res: AxiosResponse)=>{
+            await api.get('/movies').then((res: AxiosResponse)=>{
                 setMovie(res.data)
             })
         }    
