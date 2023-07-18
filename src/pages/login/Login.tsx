@@ -33,7 +33,7 @@ export default function Login() {
   const { register, handleSubmit, formState:{errors}} = useForm<iLogin>({resolver: yupResolver(schema)})
   const [wrongPassword, setWrongPassword] = useState('')
   async function handleLoginSubmit(data: iLogin){
-    const response = await api.post('/login',{
+    await api.post('/login',{
       email: data.email,
       password: data.password
     }).then((res: AxiosResponse)=>{

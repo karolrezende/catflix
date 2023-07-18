@@ -1,10 +1,10 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from '/src/components/Header/Header'
+import Header from '../../components/Header/Header'
 import styles from './styles.module.scss'
-import Input from '/src/components/Input/Input'
-import Button from '/src/components/Button/Button'
-import Footer from '/src/components/Footer/Footer'
+import Input from '../../components/Input/Input'
+import Button from '../../components/Button/Button'
+import Footer from '../../components/Footer/Footer'
 import catInput from '/public/cathappy.png'
 import catSleep from '/public/catsleep.png'
 import catSit from '/public/catsit.png'
@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 import * as yup from 'yup'; 
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { api } from '/src/app/apiConection.tsx'
+import { api } from '../../app/apiConection.tsx'
 
 import { AxiosError, AxiosResponse } from 'axios'
 
