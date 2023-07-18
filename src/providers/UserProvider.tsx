@@ -1,5 +1,5 @@
 /* eslint-disable no-inner-declarations */
-import { api } from "/src/app/apiConection"
+import { api } from "../app/apiConection"
 import { AxiosResponse } from "axios"
 import { Children, ReactNode, createContext, useContext, useEffect, useState } from "react"
 
@@ -7,14 +7,14 @@ interface iReactNode{
     children: ReactNode
 }
 interface iContext{
-    token: string
+    token: any
     user: iUser
-    tokenSetter: (token: string) => void
+    tokenSetter: (token: any) => void
 }
 const UserContext = createContext<iContext>({} as iContext)
 interface iUser {
     id: number,
-    name: string, 
+    username: string, 
     email: string
 }
 export const UserProvider=({children}: iReactNode)=> {

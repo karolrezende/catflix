@@ -1,19 +1,19 @@
-import Header from '/src/components/Header/Header'
+import Header from '../../components/Header/Header'
 import styles from './styles.module.scss'
-import Input from '/src/components/Input/Input'
-import Button from '/src/components/Button/Button'
-import Footer from '/src/components/Footer/Footer'
+import Input from '../../components/Input/Input'
+import Button from '../../components/Button/Button'
+import Footer from '../../components/Footer/Footer'
 import catInput from '/public/cathappy.png'
 import catSleep from '/public/catsleep.png'
 import catSit from '/public/catsit.png'
 import catBit from '/public/bigCat.png'
 import { Link, useNavigate } from 'react-router-dom'
-import { useUserContext } from '/src/providers/UserProvider.tsx'
+import { useUserContext } from '../../providers/UserProvider.tsx'
 
 import * as yup from 'yup'; 
 import { useForm } from "react-hook-form"; 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { api } from '/src/app/apiConection'
+import { api } from '../../app/apiConection'
 import { AxiosError, AxiosResponse } from 'axios'
 import { useState } from 'react'
 
@@ -37,14 +37,14 @@ export default function Login() {
       email: data.email,
       password: data.password
     }).then((res: AxiosResponse)=>{
-      const token = res.data.token
+      const token: any = res.data.token
       tokenSetter({token})
       localStorage.setItem("token", JSON.stringify(token))
       console.log(res.data.token)
       navigate('/profile')
       
     }).catch((err: AxiosError) =>{
-      console.log("deu erro", err)
+      console.log("deu erro", err.request?.status)
       if(err.request?.status === 401){
         setWrongPassword("Email/senha incorreto")
       }

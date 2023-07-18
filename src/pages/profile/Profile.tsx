@@ -1,10 +1,9 @@
-import Header from '/src/components/Header/Header'
+import Header from '../../components/Header/Header'
 import styles from './styles.module.scss'
 import catProfile from '/public/ccat.png'
 import { useNavigate } from 'react-router-dom'
-import { useUserContext } from '/src/providers/UserProvider'
+import { useUserContext } from '../../providers/UserProvider'
 export default function Profile() {
-  const username = 'Karol'
   const navigateTo = useNavigate()
   const renderHome = () =>{
     navigateTo('/home')

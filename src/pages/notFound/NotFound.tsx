@@ -1,4 +1,4 @@
-import Header from '/src/components/Header/Header'
+import Header from '../../components/Header/Header'
 import catbox from './content/catbox.png'
 import styles from './styles.module.scss'
 import { Link } from 'react-router-dom'

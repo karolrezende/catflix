@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import img from '/public/catflix.png'
 import styles from './styles.module.scss'
-import Button from '/src/components/Button/Button'
+import Button from '../../components/Button/Button'
 import LoadContent from '../../components/LoadContent/LoadContent'
 import { Link } from 'react-router-dom'
 
